@@ -38,13 +38,13 @@ class CodeAnalysis:
             if oss_git_tool == 'bit':
                 return_info = get_repo_by_git('data/'+oss_name, 'git://git.code.sf.net' + oss_git_url)
             elif oss_git_tool == 'SVN':
-                return_info = get_repo_by_svn('data/' + oss_name, 'svn://svn.code.sf.net' + oss_git_url)
+                return_info = get_repo_by_svn('data/' + oss_name, 'https://svn.code.sf.net' + oss_git_url)
             if return_info == 1:
                 oss_info = OsslibMetedata.get(oss_id)
                 oss_info.oss_local_path = 'data/' + oss_name
 
     def code_analysis(self):
-        oss_info = OsslibMetedata.get(3023)
+        oss_info = OsslibMetedata.get(3211)
         prevdir = os.getcwd()
         #for per_oss_path in oss_info:
         if oss_info.oss_local_path != '':

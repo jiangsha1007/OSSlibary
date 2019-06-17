@@ -51,13 +51,13 @@ def getpipeoutput(cmds, quiet = False):
     end = time.time()
     if not quiet:
         if ON_LINUX and os.isatty(1):
-            print ('\r'),
-        print ('[%.5f] >> %s' % (end - start, ' | '.join(cmds)))
+            print('\r'),
+        print('[%.5f] >> %s' % (end - start, ' | '.join(cmds)))
     exectime_external += (end - start)
     return_str = output.rstrip('\r\n'.encode())
     if return_str == b'':
         return []
-    return str(return_str, encoding = "utf-8")
+    return str(return_str, encoding="utf-8")
 
 def getlogrange(defaultrange = 'HEAD', end_only = True):
     commit_range = getcommitrange(defaultrange, end_only)
