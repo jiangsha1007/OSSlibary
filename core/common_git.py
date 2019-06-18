@@ -19,13 +19,13 @@ def get_repo_by_svn(loacal_path, svn_url):
     #Repo.init(loacal_path)  # 创建一个git文件夹
     try:
 
-        r = svn.local.LocalClient('F:/code/python/OSSlib/data/cloverefiboot')
-        info = r.info()
+        #r = svn.local.LocalClient('F:/code/python/OSSlib/data/cloverefiboot')
+        #info = r.info()
 
-        #r = svn.remote.RemoteClient(svn_url)
-        #os.mkdir(loacal_path)
-        #dir = "F:/code/python/OSSlib/"+loacal_path
-        #r.checkout(dir)
+        r = svn.remote.RemoteClient(svn_url)
+        os.mkdir(loacal_path)
+        dir = "F:/code/python/OSSlib/"+loacal_path
+        r.checkout(dir)
         return 1
     except BaseException as ex:
         print(ex)
