@@ -2,6 +2,7 @@ from model.common_model import *
 from multiprocessing.managers import BaseManager
 import queue
 from core.sourceforge.getosslist import *
+from core.GitHub.getosslist import *
 from core.code_analysis import *
 task_queue = queue.Queue()
 
@@ -17,12 +18,10 @@ class QueueManager(BaseManager): pass
 
 if __name__ == '__main__':
     # 通过多个社区api获取repo列表,
-    #osslib_community_list = OsslibCommunityApi.select()
-
-    # for per_software_community in osslib_community_list:
-
-    #SourceForge().get_oss_list(2)
-    CodeAnalysis().get_code()
+    osslib_community_list = OsslibCommunityApi.select()
+    for per_software_community in osslib_community_list:
+        eval(per_software_community.community_name)().get_oss_list(1)
+    #CodeAnalysis().get_code()
     #CodeAnalysis().code_analysis()
     '''
     all_json_file = list(path.glob('**/*.json'))

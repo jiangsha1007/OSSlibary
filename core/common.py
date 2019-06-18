@@ -6,6 +6,7 @@ from multiprocessing.managers import BaseManager
 import multiprocessing
 import threading
 import queue
+import json
 
 
 def get_html_text(url):
@@ -18,6 +19,16 @@ def get_html_text(url):
     except:
         traceback.print_exc()
 
+
+def get_html_json(url, header):
+    try:
+        response = requests.get(url, headers=header)
+        text_info = response.text
+        text_json = json.loads(text_info)
+        head_info = response.headers
+        return text_json, head_info
+    except:
+        traceback.print_exc()
 
 class QueueManager(BaseManager): pass
 
