@@ -33,7 +33,7 @@ class SourceForge:
                 item = dict()
                 item['oss_name'] = li_list_a_href.split('/')[2]
                 item['community_from'] = id
-                return_cursor = OsslibMetedata(**item)
+                return_cursor = OsslibMetadata(**item)
                 trans_info = []
                 trans_info.append(item['oss_name'])
                 trans_info.append(return_cursor.id)
@@ -52,7 +52,7 @@ class SourceForge:
             if jsonobj['status'] == 'moved':
                 true_repo_url = jsonobj['moved_to_url']
             else:
-                oss_info = OsslibMetedata.get(info[1])
+                oss_info = OsslibMetadata.get(info[1])
                 oss_info.oss_description = jsonobj['short_description']
                 oss_info.community_id = jsonobj['_id']
                 oss_info.oss_homepage = jsonobj['external_homepage']

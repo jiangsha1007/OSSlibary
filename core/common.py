@@ -30,6 +30,17 @@ def get_html_json(url, header):
     except:
         traceback.print_exc()
 
+
+def get_graphql(url, query, header):
+    try:
+        response = requests.post(url, json={'query': query}, headers=header)
+        text_info = response.text
+        text_json = json.loads(text_info)
+        head_info = response.headers
+        return text_json, head_info
+    except:
+        traceback.print_exc()
+
 class QueueManager(BaseManager): pass
 
 

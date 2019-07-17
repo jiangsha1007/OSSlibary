@@ -12,8 +12,8 @@ class OsslibCommunityApi(SQLObject):
     git_api = StringCol(length=255)
 
 
-class OsslibMetedata(SQLObject):
-    community_id = StringCol(length=50,)
+class OsslibMetadata(SQLObject):
+    community_id = IntCol(length=50,)
     community_from = IntCol(length=11)
     oss_name = StringCol(length=50)
     oss_fullname = StringCol(length=100, unique=True)
@@ -30,4 +30,18 @@ class OsslibMetedata(SQLObject):
     oss_file_count = IntCol(length=50)
     oss_commit_count = IntCol(length=50)
     oss_lastupdate_time = StringCol(length=50)
+    oss_owner_id = IntCol(length=50)
+    oss_owner_type = StringCol(length=100)
+    oss_star = IntCol(length=11)
+    oss_main_language = StringCol(length=50)
+    oss_owner_id = IntCol(length=11)
+    oss_owner_type = StringCol(length=11)
+    oss_size = IntCol(length=11)
+    oss_lastupdate_time = StringCol(length=50)
+    has_wiki = IntCol(length=11)
+    readme = StringCol(length=5000)
 
+
+class OsslibTopic(SQLObject):
+    oss_id = IntCol(length=11)
+    topic = StringCol(length=100)
